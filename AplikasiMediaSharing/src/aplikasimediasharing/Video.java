@@ -8,7 +8,7 @@ package aplikasimediasharing;
  *
  * @author muham
  */
-public class Video extends Media {
+public class Video extends Media implements java.io.Serializable {
     private String nama;
     
     public Video (double size, String nama) {

@@ -4,11 +4,8 @@
  * and open the template in the editor.
  */
 package aplikasimediasharing;
-/**
- *
- * @author muham
- */
-public class Foto extends Media {
+
+public class Foto extends Media implements java.io.Serializable{
     private String nama;
     
     public Foto (double size, String nama) {
