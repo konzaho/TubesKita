@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aplikasimediasharing;
+package Model;
 
 /*import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -12,7 +12,7 @@ import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;*/
-import aplikasimediasharing.Akun;
+import Model.Akun;
 import java.util.ArrayList;
 
 /**

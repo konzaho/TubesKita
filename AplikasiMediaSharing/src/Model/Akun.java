@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aplikasimediasharing;
+package Model;
 
 /*import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -16,8 +16,8 @@ import java.util.ArrayList;
  * @author muham
  */
 public class Akun implements java.io.Serializable{
-    private String nama,pass,username;
-    private String tempattanggallahir;
+    private String namaDepan,namaBelakang,username,password,tempatLahir,tanggalLahir,email;
+    private int idAkun;
     private ArrayList<Media> media = new ArrayList();
     private ArrayList<Akun> friend = new ArrayList();
     
@@ -92,49 +92,99 @@ public class Akun implements java.io.Serializable{
         }
         return obj;
     }*/
-    
-    public Akun(String nama, String pass, String username, String tempattanggallahir) {
-        this.nama = nama;
-        this.pass = pass;
+
+    public Akun(int idAkun, String username, String namaDepan, String namaBelakang,  String tempatLahir, String tanggalLahir, String email, String password) {
+        this.namaDepan = namaDepan;
+        this.namaBelakang = namaBelakang;
         this.username = username;
-        this.tempattanggallahir = tempattanggallahir;
-    }
-    
-    public Akun () {
-        
-    }
-
-    public String getNama() {
-        return nama;
+        this.password = password;
+        this.tempatLahir = tempatLahir;
+        this.tanggalLahir = tanggalLahir;
+        this.email = email;
+        this.idAkun = idAkun;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
+    public String getNamaDepan() {
+        return namaDepan;
     }
 
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
+    public String getNamaBelakang() {
+        return namaBelakang;
     }
 
     public String getUsername() {
         return username;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public String getTempatLahir() {
+        return tempatLahir;
+    }
+
+    public String getTanggalLahir() {
+        return tanggalLahir;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public int getIdAkun() {
+        return idAkun;
+    }
+
+    public ArrayList<Media> getMedia() {
+        return media;
+    }
+
+    public ArrayList<Akun> getFriend() {
+        return friend;
+    }
+
+    public void setNamaDepan(String namaDepan) {
+        this.namaDepan = namaDepan;
+    }
+
+    public void setNamaBelakang(String namaBelakang) {
+        this.namaBelakang = namaBelakang;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getTempattanggallahir() {
-        return tempattanggallahir;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setTempattanggallahir(String tempattanggallahir) {
-        this.tempattanggallahir = tempattanggallahir;
+    public void setTempatLahir(String tempatLahir) {
+        this.tempatLahir = tempatLahir;
     }
+
+    public void setTanggalLahir(String tanggalLahir) {
+        this.tanggalLahir = tanggalLahir;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setIdAkun(int idAkun) {
+        this.idAkun = idAkun;
+    }
+
+    public void setMedia(ArrayList<Media> media) {
+        this.media = media;
+    }
+
+    public void setFriend(ArrayList<Akun> friend) {
+        this.friend = friend;
+    }
+    
+   
     
     public void createMediaFoto (double size,String nama) {
         media.add(new Foto(size,nama));

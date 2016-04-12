@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package aplikasimediasharing;
+import Model.Foto;
+import Model.Video;
+import Model.Akun;
 import java.util.ArrayList;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
