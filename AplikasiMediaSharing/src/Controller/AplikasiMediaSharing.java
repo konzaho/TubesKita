@@ -10,7 +10,10 @@ package aplikasimediasharing;
  *
  * @author muham
  */
-package aplikasimediasharing;
+package Controller;
+
+import aplikasimediasharing.console;
+
 public class AplikasiMediaSharing {
 
     /**
