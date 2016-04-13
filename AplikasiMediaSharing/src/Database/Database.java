@@ -42,18 +42,10 @@ public class Database {
         }
     }
     
-    public ArrayList<Akun> initiateListAkun(){
+    public ResultSet loadPertamaAkunDB(){
         String query = "Select * from akun";
         rs = getData(query);
-        try {
-            while(rs.next()){
-                Akun akun = new Akun(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
-                listAkun.add(akun);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return listAkun;
+        return rs;
     } 
     
     public ResultSet getData(String query){

@@ -104,6 +104,9 @@ public class Akun implements java.io.Serializable{
         this.idAkun = idAkun;
     }
 
+    public Akun() {
+    }
+
     public String getNamaDepan() {
         return namaDepan;
     }

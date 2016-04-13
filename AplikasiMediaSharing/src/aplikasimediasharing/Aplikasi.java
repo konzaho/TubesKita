@@ -13,16 +13,52 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.file.*;
+import java.sql.ResultSet;
 import java.util.Iterator;
+import Database.Database;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 /**
  *
  * @author muham
  */
 public class Aplikasi {
-    private ArrayList<Akun> akun = new ArrayList();
+    private ArrayList<Akun> listAkun = new ArrayList<Akun>();
     boolean cek = false;
     public String userr;
     public int cF=0;
+    private ResultSet rs = null;
+    private Database db = new Database();
+    private boolean validLogin = false;
+    
+    public void loadSemuaAkun(){
+        rs = db.loadPertamaAkunDB();
+        try {
+            while(rs.next()){
+                Akun akun = new Akun(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
+                listAkun.add(akun);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null," "+ ex.getMessage(), "Can't Get Data", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
+    public boolean login(String username, String password){
+        Akun temp = getAkun(username);
+        if(temp.getPassword().equals(password)) validLogin = true;
+        return validLogin;
+    }
+    
+    public Akun getAkun(String username){
+        Akun result = new Akun();
+        for(Akun temp : listAkun){
+            if(temp.getUsername().equals(username)){ 
+                result = temp;
+                return result;
+            }
+        }
+        return null;
+    }
     
     public void loadfile() {
         String workingDir = System.getProperty("user.dir");
