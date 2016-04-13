@@ -56,6 +56,11 @@ public class AccountPanel extends javax.swing.JPanel {
         jLabel5.setText("Password");
 
         accountButton.setText("Register");
+        accountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accountButtonActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Birth Date");
 
@@ -135,6 +140,10 @@ public class AccountPanel extends javax.swing.JPanel {
                 .addContainerGap(79, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void accountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_accountButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -36,13 +36,18 @@ public class LoginPanel extends javax.swing.JPanel {
         usernameField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
         loginButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        createAkunButton = new javax.swing.JButton();
         loginLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         loginButton.setText("Login");
 
-        jButton1.setText("Create Account");
+        createAkunButton.setText("Create Account");
+        createAkunButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createAkunButtonActionPerformed(evt);
+            }
+        });
 
         loginLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         loginLabel.setText("a Media Sharing Program");
@@ -60,7 +65,7 @@ public class LoginPanel extends javax.swing.JPanel {
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(createAkunButton)
                                 .addGap(28, 28, 28)
                                 .addComponent(loginButton))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -86,14 +91,18 @@ public class LoginPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loginButton)
-                    .addComponent(jButton1))
+                    .addComponent(createAkunButton))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void createAkunButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAkunButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createAkunButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton createAkunButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel loginLabel;
@@ -101,8 +110,8 @@ public class LoginPanel extends javax.swing.JPanel {
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 
-    public JButton getjButton1() {
-        return jButton1;
+    public JButton getCreateAkunButton() {
+        return createAkunButton;
     }
 
     public JLabel getjLabel1() {
@@ -137,7 +146,7 @@ public class LoginPanel extends javax.swing.JPanel {
         loginButton.addActionListener(e);
     }
     
-    public String getnUsername(){
+    public String getUsername(){
         return (String) usernameField.getText();
     }
     

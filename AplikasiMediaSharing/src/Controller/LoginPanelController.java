@@ -22,6 +22,7 @@ public class LoginPanelController extends MouseAdapter implements ActionListener
     
     private LoginPanel lp = new LoginPanel();
     private MainFrame mf = new MainFrame();
+    private AccountPanel ap = new AccountPanel();
     
     public LoginPanelController(){
         showLoginPanel();
@@ -31,11 +32,19 @@ public class LoginPanelController extends MouseAdapter implements ActionListener
         mf.setLayout(new BorderLayout());
         mf.add(lp, BorderLayout.CENTER);
         mf.setVisible(true);
-        if(lp.loginListener(null))
+        lp.getCreateAkunButton().addActionListener(this);
+        lp.getLoginButton().addActionListener(this);
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(e.getSource() == lp.getCreateAkunButton()){
+            lp.setVisible(false);
+            mf.setLayout(new BorderLayout());
+            mf.add(ap, BorderLayout.CENTER);
+            mf.setVisible(true);
+            System.out.println("Konzaho");
+        }
     }
+    
 }

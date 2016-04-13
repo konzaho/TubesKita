@@ -73,7 +73,11 @@ public class Aplikasi {
              JOptionPane.showMessageDialog(null," "+ ex.getMessage(), "Can't Get Data", JOptionPane.WARNING_MESSAGE);
         }
     }
-
+    
+    public boolean editAkun(){
+        return true;
+    }
+    
     public boolean login(String username, String password){
         Akun temp = getAkun(username);
         if(temp.getPassword().equals(password)) {
