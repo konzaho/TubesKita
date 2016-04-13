@@ -12,7 +12,8 @@ package aplikasimediasharing;
  */
 package Controller;
 
-import aplikasimediasharing.console;
+// import aplikasimediasharing.console;
+import Controller.LoginPanelController;
 
 public class AplikasiMediaSharing {
 
@@ -21,8 +22,9 @@ public class AplikasiMediaSharing {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        console c = new console();
-        c.Display();
+        /* console c = new console();
+        c.Display(); */
+        LoginPanelController lpc = new LoginPanelController();
     }
     
 }

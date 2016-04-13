@@ -5,6 +5,12 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Fiqih
@@ -94,4 +100,48 @@ public class LoginPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public JButton getLoginButton() {
+        return loginButton;
+    }
+
+    public JLabel getLoginLabel() {
+        return loginLabel;
+    }
+
+    public JPasswordField getPasswordField() {
+        return passwordField;
+    }
+
+    public JTextField getUsernameField() {
+        return usernameField;
+    }
+
+    public void setPasswordField(JPasswordField passwordField) {
+        this.passwordField = passwordField;
+    }
+
+    public void setUsernameField(JTextField usernameField) {
+        this.usernameField = usernameField;
+    }
+    
+    public void loginListener(ActionListener e){
+        loginButton.addActionListener(e);
+    }
+    
+    public String getnUsername(){
+        return (String) usernameField.getText();
+    }
+    
+    public String getPassword(){
+        return (String) passwordField.getPassword().toString();
+    }
 }

@@ -42,12 +42,6 @@ public class Database {
         }
     }
     
-    public ResultSet loadPertamaAkunDB(){
-        String query = "Select * from akun";
-        rs = getData(query);
-        return rs;
-    } 
-    
     public ResultSet getData(String query){
         try {
             rs = stmt.executeQuery(query);
@@ -65,22 +59,47 @@ public class Database {
         }
     }
     
-    public int loginDatabase(String username, String password){
-        if(listAkun.contains(username));
-        String query = "Select count(*) from user where username='"+username+"' and password='"+password+"'";
+    public ResultSet loadSemuaAkunDB(){
+        String query = "Select * from akun";
         rs = getData(query);
-        try {
-            if(!rs.next()){
-                return 0;
-            }
-            while(rs.next()){
-                
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null," "+ ex.getMessage(), "Login System Fail", JOptionPane.WARNING_MESSAGE);
-        }
-        return 0;
-        
+        return rs;
+    } 
+    
+    public ResultSet loadSemuaMediaDB(int id){
+        String query = "Select * from media where id_user='" + id + "'";
+        rs = getData(query);
+        return rs;
+    }
+    
+    public ResultSet loadSemuaFriendDB(int id){
+        String query = "select * from friend where id_user'" + id +"'";
+        rs = getData(query);
+        return rs;
+    }
+    
+    public void insertAkun(Akun a){
+        String query = "insert into user(username,first_name,last_name,tempat_lahir,tanggal_lahir,email,password) values("
+                        + "'" + a.getUsername() +"'"
+                        + ",'" + a.getNamaDepan() + "'"
+                        + ",'" + a.getNamaBelakang() + "'"
+                        + ",'" + a.getTempatLahir() + "'"
+                        + ",'" + a.getTanggalLahir() + "'"
+                        + ",'" + a.getEmail() + "'"
+                        + ",'" + a.getPassword() + "')";
+        execute(query);
+    }
+    
+    public void updateAkun(Akun a){
+        String query = "update user set" +
+                       "username ='" + a.getUsername() + "',"  +
+                       "first_name ='" + a.getNamaDepan() + "'," +
+                       "last_name ='" + a.getNamaDepan() + "'," +
+                       "tempat_lahir ='" + a.getTempatLahir() + "'," +
+                       "tanggal_lahir ='" + a.getTanggalLahir() + "'," +
+                       "email ='" + a.getEmail() + "'," +
+                       "password ='" +a.getPassword() + "'," +
+                       "where id_user ='" + a.getIdAkun();
+        execute(query);
     }
     
 }

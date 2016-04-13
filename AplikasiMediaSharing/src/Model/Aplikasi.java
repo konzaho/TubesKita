@@ -3,10 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aplikasimediasharing;
-import Model.Foto;
-import Model.Video;
-import Model.Akun;
+package Model;
 import java.util.ArrayList;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -17,6 +14,8 @@ import java.sql.ResultSet;
 import java.util.Iterator;
 import Database.Database;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
@@ -24,6 +23,9 @@ import javax.swing.JOptionPane;
  */
 public class Aplikasi {
     private ArrayList<Akun> listAkun = new ArrayList<Akun>();
+    private ArrayList<Video> listVideo = new ArrayList<Video>();
+    private ArrayList<Foto> listFoto = new ArrayList<Foto>();
+    private ArrayList<Integer> listFriend = new ArrayList<Integer>();
     boolean cek = false;
     public String userr;
     public int cF=0;
@@ -32,7 +34,7 @@ public class Aplikasi {
     private boolean validLogin = false;
     
     public void loadSemuaAkun(){
-        rs = db.loadPertamaAkunDB();
+        rs = db.loadSemuaAkunDB();
         try {
             while(rs.next()){
                 Akun akun = new Akun(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
@@ -43,9 +45,41 @@ public class Aplikasi {
         }
     }
     
+    public void loadSemuaFriendUser(int id){
+        rs = db.loadSemuaFriendDB(id);
+        try {
+            while(rs.next()){
+                listFriend.add(rs.getInt(2));
+            }
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null," "+ ex.getMessage(), "Can't Get Data", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
+    public void loadSemuaMediaUser(int id){
+        rs = db.loadSemuaMediaDB(id);
+        try {
+            while(rs.next()){
+                if(rs.getString(3).equals("Foto")){
+                    Foto f = new Foto(rs.getInt(1),rs.getString(4),rs.getDouble(5));
+                    listFoto.add(f);
+                }
+                else if(rs.getString(3).equals("Video")){
+                    Video v = new Video(rs.getInt(1),rs.getString(4),rs.getDouble(5));
+                    listVideo.add(v);
+                }
+            }
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null," "+ ex.getMessage(), "Can't Get Data", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
     public boolean login(String username, String password){
         Akun temp = getAkun(username);
-        if(temp.getPassword().equals(password)) validLogin = true;
+        if(temp.getPassword().equals(password)) {
+            validLogin = true;
+            loadSemuaMediaUser(temp.getIdAkun());
+        }
         return validLogin;
     }
     
@@ -60,6 +94,8 @@ public class Aplikasi {
         return null;
     }
     
+    
+    /*
     public void loadfile() {
         String workingDir = System.getProperty("user.dir");
         Path path = Paths.get(workingDir+"/akun.ser");//ganti dengan folder project
@@ -396,5 +432,5 @@ public class Aplikasi {
             getAkun(userr).removeMedia(i-1);
         }  
     }
-    
+    */
 }

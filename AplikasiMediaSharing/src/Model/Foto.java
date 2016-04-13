@@ -6,20 +6,37 @@
 package Model;
 
 public class Foto extends Media implements java.io.Serializable{
-    private String nama;
     
-    public Foto (double size, String nama) {
-        super(size);
-        this.nama = nama;
+    public Foto (int idMedia, String nama, double size) {
+        super(idMedia, nama, size);
     }
 
+    public Foto(String nama, double size){
+        super(nama,size);
+    }
+    
     public String getNama() {
-        return nama;
+        return super.getNama();
     }
 
-   
     public void setNama(String nama) {
-        this.nama = nama;
+        super.setNama(nama);
+    }
+    
+    public int getIdMedia(){
+        return super.getIdMedia();
+    }
+    
+    public void setIdMedia(int id){
+        super.setIdMedia(id);
+    }
+    
+    public double getSize(){
+        return super.getSize();
+    }
+    
+    public void setSize(double size){
+        super.setSize(size);
     }
     
 }

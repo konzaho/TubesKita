@@ -9,6 +9,7 @@ import java.util.Scanner;
  *
  * @author muham
  */
+/*
 public class console {
        int inp,pil,pil2;
        double pil1;
@@ -300,3 +301,4 @@ public class console {
            c.Display();
        }
 }
+*/

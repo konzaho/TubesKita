@@ -18,7 +18,8 @@ import java.util.ArrayList;
 public class Akun implements java.io.Serializable{
     private String namaDepan,namaBelakang,username,password,tempatLahir,tanggalLahir,email;
     private int idAkun;
-    private ArrayList<Media> media = new ArrayList();
+    private ArrayList<Foto> foto = new ArrayList<Foto>();
+    private ArrayList<Video> video = new ArrayList<Video>();
     private ArrayList<Akun> friend = new ArrayList();
     
     //mengambil data dari database friend
@@ -106,7 +107,6 @@ public class Akun implements java.io.Serializable{
 
     public Akun() {
     }
-
     public String getNamaDepan() {
         return namaDepan;
     }
@@ -139,14 +139,18 @@ public class Akun implements java.io.Serializable{
         return idAkun;
     }
 
-    public ArrayList<Media> getMedia() {
-        return media;
-    }
-
     public ArrayList<Akun> getFriend() {
         return friend;
     }
 
+    public ArrayList<Foto> getFoto() {
+        return foto;
+    }
+
+    public ArrayList<Video> getVideo() {
+        return video;
+    }
+    
     public void setNamaDepan(String namaDepan) {
         this.namaDepan = namaDepan;
     }
@@ -179,40 +183,23 @@ public class Akun implements java.io.Serializable{
         this.idAkun = idAkun;
     }
 
-    public void setMedia(ArrayList<Media> media) {
-        this.media = media;
-    }
-
     public void setFriend(ArrayList<Akun> friend) {
         this.friend = friend;
     }
-    
-   
-    
-    public void createMediaFoto (double size,String nama) {
-        media.add(new Foto(size,nama));
-        //savedataMedia(media, "media.ser");
+
+    public void setFoto(ArrayList<Foto> foto) {
+        this.foto = foto;
     }
-    
-    public void createMediaVideo (double size,String nama) {
-        media.add(new Video(size,nama));
-        //savedataMedia(media, "media.ser");
+
+    public void setVideo(ArrayList<Video> video) {
+        this.video = video;
     }
     
     public void followFriend (Akun p) {
         friend.add(p);
         //savedataFriend(friend,"friend.ser");
     }
-    
-    public Media getMedia (int i) {
-        return media.get(i);
-    }
-    
-    public void removeMedia (int i) {
-        media.remove(i);
-        //savedataMedia(media, "media.ser");
-    }
-    
+      
     public Akun getPerson (int i) {
         return friend.get(i);
     }
@@ -220,14 +207,6 @@ public class Akun implements java.io.Serializable{
     public void removePerson (int i) {
         friend.remove(i);
         //savedataFriend(friend,"friend.ser");
-    }
-    
-    public boolean cekMedia () {
-        //loadMedia();
-        return media.isEmpty();
-    }
-    public int sizeMedia() {
-        return media.size();
     }
     
     public boolean cekFriend () {
@@ -238,7 +217,7 @@ public class Akun implements java.io.Serializable{
         return friend.size();
     }
     
-    public void editFoto (int i, String nama, double size) {
+  /*  public void editFoto (int i, String nama, double size) {
         Foto f = (Foto)getMedia(i);
         f.setNama(nama);
         getMedia(i).setSize(size);
@@ -250,5 +229,5 @@ public class Akun implements java.io.Serializable{
         f.setNama(nama);
         getMedia(i).setSize(size);
         //savedataMedia(media, "media.ser");
-    }
+    } */
 } 

@@ -10,22 +10,37 @@ package Model;
  * @author muham
  */
 public class Video extends Media implements java.io.Serializable {
-    private String nama;
     
-    public Video (double size, String nama) {
-        super(size);
-        this.nama = nama;
+   public Video (int idMedia, String nama, double size) {
+        super(idMedia, nama, size);
     }
 
-  
+    public Video(String nama, double size){
+        super(nama,size);
+    }
+    
     public String getNama() {
-        return nama;
+        return super.getNama();
     }
 
-  
     public void setNama(String nama) {
-        this.nama = nama;
+        super.setNama(nama);
     }
     
+    public int getIdMedia(){
+        return super.getIdMedia();
+    }
+    
+    public void setIdMedia(int id){
+        super.setIdMedia(id);
+    }
+    
+    public double getSize(){
+        return super.getSize();
+    }
+    
+    public void setSize(double size){
+        super.setSize(size);
+    }
     
 }

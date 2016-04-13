@@ -23,9 +23,42 @@ public abstract class Media implements java.io.Serializable {
     private double size;
     private ArrayList<Akun> tagged = new ArrayList();
     private int numAk=0;
+    private int idMedia;
+    private String nama;
     
-    public Media (double size) {
+    public Media (int idMedia, String nama, double size) {
+        this.nama = nama;
+        this.idMedia = idMedia;
         this.size = size;
+    }
+
+    public Media(String nama, double size) {
+        this.size = size;
+        this.nama = nama;
+    }
+
+    public void setNumAk(int numAk) {
+        this.numAk = numAk;
+    }
+
+    public void setIdMedia(int idMedia) {
+        this.idMedia = idMedia;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public int getNumAk() {
+        return numAk;
+    }
+
+    public int getIdMedia() {
+        return idMedia;
+    }
+
+    public String getNama() {
+        return nama;
     }
 
     public double getSize() {
